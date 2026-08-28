@@ -109,6 +109,125 @@ export type HomepageimageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for infotext documents
+ */
+interface InfotextDocumentData {
+  /**
+   * name field in *infotext*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: infotext
+   * - **API ID Path**: infotext.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * text field in *infotext*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: infotext.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * infotext document from Prismic
+ *
+ * - **API ID**: `infotext`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type InfotextDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<InfotextDocumentData>,
+    "infotext",
+    Lang
+  >;
+
+/**
+ * Content for Performance documents
+ */
+interface PerformanceDocumentData {
+  /**
+   * Time field in *Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. 14:00
+   * - **API ID Path**: performance.time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  time: prismic.KeyTextField;
+
+  /**
+   * Title field in *Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Dans á rósum
+   * - **API ID Path**: performance.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Artist field in *Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Artist name
+   * - **API ID Path**: performance.artist
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  artist: prismic.KeyTextField;
+
+  /**
+   * Text field in *Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Performance description
+   * - **API ID Path**: performance.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Image field in *Performance*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: performance.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Performance document from Prismic
+ *
+ * - **API ID**: `performance`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PerformanceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PerformanceDocumentData>,
+    "performance",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice = never;
 
 /**
@@ -150,7 +269,11 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = HomepageimageDocument | PageDocument;
+export type AllDocumentTypes =
+  | HomepageimageDocument
+  | InfotextDocument
+  | PerformanceDocument
+  | PageDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -175,6 +298,10 @@ declare module "@prismicio/client" {
     export type {
       HomepageimageDocument,
       HomepageimageDocumentData,
+      InfotextDocument,
+      InfotextDocumentData,
+      PerformanceDocument,
+      PerformanceDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
