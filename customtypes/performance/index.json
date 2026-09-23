@@ -41,11 +41,25 @@
           "placeholder": "Text in Icelandic"
         }
       },
+      "icelandic_artist_bio": {
+        "type": "Text",
+        "config": {
+          "label": "Icelandic artist bio",
+          "placeholder": "Artist bio in Icelandic"
+        }
+      },
       "english_text": {
         "type": "Text",
         "config": {
           "label": "English text",
           "placeholder": "Text in English"
+        }
+      },
+      "english_artist_bio": {
+        "type": "Text",
+        "config": {
+          "label": "English artist bio",
+          "placeholder": "Artist bio in English"
         }
       },
       "image": {
