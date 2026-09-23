@@ -34,18 +34,18 @@
           "placeholder": "Artist name"
         }
       },
-      "artist_bio": {
+      "icelandic_text": {
         "type": "Text",
         "config": {
-          "label": "Artist bio",
-          "placeholder": "Short bio about the artist"
+          "label": "Icelandic text",
+          "placeholder": "Text in Icelandic"
         }
       },
-      "text": {
+      "english_text": {
         "type": "Text",
         "config": {
-          "label": "Text",
-          "placeholder": "Performance description"
+          "label": "English text",
+          "placeholder": "Text in English"
         }
       },
       "image": {
