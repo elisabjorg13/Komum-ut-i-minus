@@ -5,6 +5,13 @@ import { notFound } from 'next/navigation'
 
 type Params = { uid: string }
 
+function splitParagraphs(text: string | null | undefined) {
+  return (text || '')
+    .split(/\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+}
+
 export default async function PerformancePage({ params }: { params: Params }) {
   const client = createClient()
 
@@ -16,10 +23,10 @@ export default async function PerformancePage({ params }: { params: Params }) {
     notFound()
   }
 
-  const paragraphs = (performance.data.text || '')
-    .split(/\n+/)
-    .map((p) => p.trim())
-    .filter(Boolean)
+  const icelandicParagraphs = splitParagraphs(performance.data.icelandic_text)
+  const icelandicBio = splitParagraphs(performance.data.icelandic_artist_bio)
+  const englishParagraphs = splitParagraphs(performance.data.english_text)
+  const englishBio = splitParagraphs(performance.data.english_artist_bio)
 
   return (
     <div className="min-h-screen bg-white px-4 py-10 md:px-8">
@@ -41,8 +48,23 @@ export default async function PerformancePage({ params }: { params: Params }) {
             alt=""
           />
         )}
-        {paragraphs.map((paragraph, i) => (
-          <p key={i} className="text-xl leading-snug md:text-2xl">
+        {icelandicParagraphs.map((paragraph, i) => (
+          <p key={`is-text-${i}`} className="text-xl leading-snug md:text-2xl">
+            {paragraph}
+          </p>
+        ))}
+        {icelandicBio.map((paragraph, i) => (
+          <p key={`is-bio-${i}`} className="text-xl leading-snug md:text-2xl">
+            {paragraph}
+          </p>
+        ))}
+        {englishParagraphs.map((paragraph, i) => (
+          <p key={`en-text-${i}`} className="text-xl leading-snug md:text-2xl">
+            {paragraph}
+          </p>
+        ))}
+        {englishBio.map((paragraph, i) => (
+          <p key={`en-bio-${i}`} className="text-xl leading-snug md:text-2xl">
             {paragraph}
           </p>
         ))}

@@ -1,0 +1,7 @@
+{
+  "repositoryName": "komum-ut-i-minus",
+  "libraries": [
+    "./slices"
+  ],
+  "routes": []
+}
