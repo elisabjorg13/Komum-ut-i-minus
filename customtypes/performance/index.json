@@ -34,6 +34,13 @@
           "placeholder": "Artist name"
         }
       },
+      "artist_bio": {
+        "type": "Text",
+        "config": {
+          "label": "Artist bio",
+          "placeholder": "Short bio about the artist"
+        }
+      },
       "text": {
         "type": "Text",
         "config": {
