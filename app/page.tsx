@@ -39,6 +39,15 @@ export default async function Home() {
         </div>
       </div>
 
+      <div className="pointer-events-none fixed inset-x-0 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center leading-none text-[#D10000]/70">
+        <p className="text-center text-5xl font-bold md:text-7xl">
+          Tóma Rýmið, Hólmaslóð 4
+        </p>
+        <p className="mt-2 text-center text-4xl font-bold md:text-6xl">
+          10.10.26
+        </p>
+      </div>
+
       <div className="pointer-events-none fixed inset-0 z-10 bg-white/10" />
 
       <div className="h-full overflow-y-auto">
