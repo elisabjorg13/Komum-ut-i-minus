@@ -39,11 +39,11 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="pointer-events-none fixed inset-x-0 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center leading-none text-[#D10000]/70">
-        <p className="text-center text-5xl font-bold md:text-7xl">
+      <div className="pointer-events-none fixed inset-x-0 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center leading-none text-[#D10000]/90 border-white">
+        <p className="text-center border-bg-white text-5xl font-bold md:text-7xl border-white">
           Tóma Rýmið, Hólmaslóð 4
         </p>
-        <p className="mt-2 text-center text-4xl font-bold md:text-6xl">
+        <p className="mt-2 text-center text-4xl font-bold md:text-6xl ">
           10.10.26
         </p>
       </div>
